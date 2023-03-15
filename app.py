@@ -85,7 +85,9 @@ def download():
     if not ioc_infos:
         return 'No data available to download'
 
-    with open('iocs_hash.csv', mode='w', newline='') as csvfile:
+    file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'iocs_hash.csv')
+
+    with open(file_path, mode='w', newline='') as csvfile:
         fieldnames = ['ioc', 'malicious_status', 'vendor_flagged', 'type_description', 'md5', 'sha1', 'sha256', 'times_submitted', 'popular_threat_classification', 'first_submission_date']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
