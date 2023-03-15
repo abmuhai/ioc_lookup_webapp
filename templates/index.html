@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>IOC Lookup</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>IOC Lookup</h1>
+    <form method="POST" action="/search">
+      <label for="ioc_list">Enter a list of IOCs:</label><br>
+      <small>Hash, IP address, Domain, and URL</small><br>
+      <textarea id="ioc_list" name="ioc_list" rows="10" cols="50"></textarea><br>
+      <button type="submit">Submit</button>
+    </form>
+    <p style="text-align: center;">
+        Add additional IOC in new line<br>
+        <br>
+        <i style="text-align: center;">
+          Example:<br>
+          www.google.com<br>
+          c55b22a016bbcf0954809a097e7c1c77<br>
+          https[://]www[.]youtube[.]com<br>
+          8.8.8.8<br>
+          <br>
+          </i>    
+    </p>
+  </body>
+</html>

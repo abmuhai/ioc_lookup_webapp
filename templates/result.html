@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>IOC Lookup Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>IOC Lookup Results</h1>
+    <h3>Hash Lookup Results</h3>
+    <div style="overflow-x:auto;">
+      <table class="center">
+      <thead>
+        <tr>
+          <th>IOC</th>
+          <th>Malicious Status</th>
+          <th>Vendor Flagged</th>
+          <th>Type Description</th>
+          <th>MD5</th>
+          <th>SHA1</th>
+          <th>SHA256</th>
+          <th>Times Submitted</th>
+          <th>Popular Threat Classification</th>
+          <th>First Submission Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ioc_info in ioc_infos %}
+          <tr>
+            <td>{{ ioc_info.ioc }}</td>
+            <td>{{ ioc_info.malicious_status }}</td>
+            <td>{{ ioc_info.vendor_flagged }}</td>
+            <td>{{ ioc_info.type_description }}</td>
+            <td>{{ ioc_info.md5 }}</td>
+            <td>{{ ioc_info.sha1 }}</td>
+            <td>{{ ioc_info.sha256 }}</td>
+            <td>{{ ioc_info.times_submitted }}</td>
+            <td>{{ ioc_info.popular_threat_classification }}</td>
+            <td>{{ ioc_info.first_submission_date }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div> 
+  <p><a href="/download">Download hash CSV</a></p>  
+  </body>
+</html>

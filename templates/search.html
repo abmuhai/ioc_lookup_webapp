@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VirusTotal Search Results</title>
+</head>
+<body>
+    <h1>VirusTotal Search Results</h1>
+    <h2>Hash Results</h2>
+    {% if hash_results %}
+        <ul>
+            {% for result in hash_results %}
+                <li>{{ result }}</li>
+            {% endfor %}
+        </ul>
+        <a href="/download/hash">Download Hash Results (CSV)</a>
+    {% else %}
+        <p>No hash results found.</p>
+    {% endif %}
+    <h2>Non-Hash Results</h2>
+    {% if non_hash_results %}
+        <ul>
+            {% for result in non_hash_results %}
+                <li><a href="{{ result[1] }}">{{ result[0] }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="/download/non-hash">Download Non-Hash Results (CSV)</a>
+    {% else %}
+        <p>No non-hash results found.</p>
+    {% endif %}
+</body>
+</html>
+
